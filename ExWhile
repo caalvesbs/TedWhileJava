@@ -1,0 +1,52 @@
+package WhileTed;
+
+import java.util.Locale;
+import java.util.Random;
+import java.util.Scanner;
+
+public class ExWhile {
+
+    public static void main(String[] args){
+
+        Scanner scan = new Scanner(System.in);
+        Locale.setDefault(Locale.US);
+        Scanner n = new Scanner(System.in);
+        Random aleatorio = new Random();
+
+        int numAleat = aleatorio.nextInt(10);
+
+        String nome;
+        int numeroEntrada;
+        int tentativas = 1;
+
+        System.out.print("Informe seu nome: ");
+        nome = n.next();
+        System.out.println(nome + ", digite um número de 0 a 10:");
+
+        numeroEntrada = scan.nextInt();
+
+        while (numeroEntrada != numAleat) {
+
+            if (numeroEntrada > numAleat) {
+                System.out.println("Incorreto, tente um numero menor.");
+                System.out.print("Informe um número de 0 a 10: ");
+                numeroEntrada = scan.nextInt();
+                tentativas++;
+            }
+
+            else if (numeroEntrada < numAleat) {
+                System.out.println("Errou, tente um número maior.");
+                System.out.print("Informe um número de 0 a 10: ");
+                numeroEntrada = scan.nextInt();
+                tentativas++;
+            }
+        }
+
+        if (numeroEntrada == numAleat) {
+            System.out.println("Parabéns " + nome + "! Você acertou! \nO número era o " + numAleat + ". \nVocê acertou em " + tentativas + " tentativas.");
+        }
+
+        scan.close();
+
+    }
+}
